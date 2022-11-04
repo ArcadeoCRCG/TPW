@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19</title>
+    <style>
+        textarea{
+            font-size: 16pt;
+            color: blue;
+            width: 50%;
+        }
+    </style>
+    <script>
+        function escucha(){
+            var boton1=document.getElementById("boton1");
+            boton1.addEventListener("click",NumPrimo,false);
+            var boton2=document.getElementById("boton2");
+            boton2.addEventListener("click",Calcular,false);
+        }
+
+        function NumPrimo(){
+            var num1=window.prompt("Ingresa un numero");
+            num1=parseInt(num1);
+            var Primo=true;
+            if(num1>1){
+                for(let i=2; i<num1; i++){
+                    if(num1%num1==0 && num1%i==0){
+                        Primo=false;
+                        break;
+                    }
+                }
+            }else{
+                Primo=false;
+            }
+            console.log(Primo+""+num1);
+            if(Primo){
+                window.alert("Es Primo");
+            }else{
+                window.alert("No es Primo");
+            }
+        }
+
+        function Calcular(){
+            var num=3; var 
+            texto=document.getElementById("AreaT");
+            Primo=true;
+            
+            while(num<=10000){
+
+                for(let i=2; i<num; ++i){
+                    if(num%i==0){
+                        Primo=false;
+                        break;
+                    }
+                }
+
+                if(Primo){
+                    texto.value+=num+", ";
+                    console.log(num);
+                }
+                Primo=true;
+                num++;
+                
+            }
+        }
+
+        window.addEventListener("load",escucha,false);
+    </script>
+</head>
+<body>
+    <h2>Ejercicio 19 u9</h2>
+    <form action="#">
+        <p>Numeros primos del 1 al 10000</p>
+        <p>
+            <textarea name="result" id="AreaT" cols="30" rows="10" disabled="true"></textarea>
+        </p>
+        <p><input id="boton1" type="button" value="¿Numero Primo?">
+            <input id="boton2" type="button" value="Calcular Primos">
+        </p>
+    </form>
+</body>
+</html>
